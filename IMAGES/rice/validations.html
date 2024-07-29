@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validations</title>
+    <style>
+    *{
+            padding:0px;
+            margin:0px;
+            /* box-sizing:border-box;  */
+            /* display: flex; */
+            /* align-items: center; */
+            /* justify-content: center; */
+         }
+
+         span{
+            color:red;
+            display:none;
+        }
+
+        
+
+         .container input {
+            margin:10px;
+            padding: 3px;
+         }
+         table{
+            background:aqua;
+            width:400px;
+            height:400px;
+            margin:0px auto; 
+            padding:20px 30px;
+      
+         }
+         table input{
+            border-radius: 5px;
+         }
+         .sub
+         {
+            width:80%;
+            position: relative;
+            left:100px; 
+            padding: 25px; 
+            /* margin:30px; */
+            background:greenyellow;
+            color:navy;       }
+
+    </style>
+</head>
+<body>
+
+    
+
+    <form action="" method=post>
+
+        <div class="container">
+            <table>
+                
+               <!-- <tr> Javascript validations -->
+               <!-- </tr> -->
+
+
+            <tr>
+               <td>  <label>User Name:</label></td>
+
+               <td>  <input type="text" name="uname" id="uname" placeholder="User Name"></td>
+            </tr> <br>
+            <!-- <span id="u">User name must be between 6 to 15 charcters only</span> <br> -->
+
+           
+            <tr>
+              <td> <label>Email Id:</label></td>
+              <td> <input type="mail" name="email" id="email"></td>
+            </tr><br>
+            <!-- <span id="e">Email must be between 6 to 15 charcters only</span> <br> -->
+
+
+            <tr>
+               <td> <label>Gender:</label></td>
+               <td>  <input type="radio" name="gender" id="male">Male
+                <input type="radio" name="gender" id="female">Female</td>
+            </tr> <br>
+            <!-- <span id="g">please select any one</span> <br> -->
+
+
+            <tr>
+               <td> <label>Phone No:</label></td>
+            <td> <input type="number" name="ph" id="ph"></td>
+            </tr>
+            <span id="x"></span> <br>
+
+
+            <tr>
+            <td> <label>Password:</label></td>
+            <td><input type="Password" name="pwd" id="pwd"></td>
+            </tr> <br>
+            <!-- <span id="x"></span> <br> -->
+
+
+            <tr>
+            
+            <td> <label>Conformation:</label></td>
+           <td> <input type="Password" name="cp" id="cpwd"></td>
+            </tr><br>
+
+        <tr>
+        <td> <input type="submit" name="submit" id="submit" value="submit" onclick="return valid()" class="sub"></td>
+        </tr><br>
+        <!-- <span id="x"></span> <br> -->
+
+            
+        </div>
+
+    </table>
+
+    </form>
+
+
+    <script>
+        function valid ()
+        {
+            var user =document.getElementById("uname").value;
+
+            var email = document.getElementById("email").value;
+
+            var m = document.getElementById("male").checked;
+
+            var f = document.getElementById("female").checked;
+
+            var phNo =document.getElementById("ph").value;
+
+            var password =document.getElementById("pwd").value;
+
+            var conformation =document.getElementById("cpwd").value;
+
+            if (user.length<6 || user.length >15)
+                {
+                    alert("User name must be between  6 to 15 charcters only");
+                    return false;
+                }
+            else if (email.length <6 || email.length >30)
+                {
+                    alert("email must be between  6 to 20 charcters only")
+                    return false;
+                }
+            else if (m==false && f==false)
+                {
+                    alert(" please select  gender")
+                    return false;
+                }
+            else if (phNo.length <10 || phNo.length >10 )
+            {
+                    alert("phone number must contain 10 digits")
+                    return false;
+            }
+
+            else if (password.length <8 || password.length >15)
+            {
+                alert("password must be between  6 to 15 charcters only")
+                return false;
+            }
+
+            else if (password !=conformation)
+            {
+                alert("password and and conformation password must be same")
+                return false;
+            }
+
+           
+
+
+            
+        }
+    </script>
+</body>
+</html>

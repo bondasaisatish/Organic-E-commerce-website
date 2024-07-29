@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register with validations</title>
+<style>
+    span{
+        color:red;
+        display:none;
+    }
+</style>
+
+</head>
+<body>
+    <div class="container">
+        <h2>Register validation form</h2>
+        <form action="" method="post">
+        <input type="text" name="user" id="user" placeholder="Username" onkeypress="myfun()"> <br>
+
+        <span id="x">Username is required</span>  <br>
+
+        <input type="email" name="email" id="email" placeholder="newuser@email.com " onkeypress="myfun()"> <br>
+
+        <span id="y">Email must contain between 10 to 25 charcters only</span><br>
+
+        <input type="password" name="pwd" id="pwd" placeholder="*********" onkeypress="myfun()"><br>
+        
+        <span  id="z">password must between 8 to 15 charcters only</span><br>
+
+        <input type="password" name="pwd" id="cpwd" placeholder="*********" onkeypress="myfun()"><br>
+
+        <span id="a">password and conformation password must be same</span><br>
+
+        <input type="submit" value="Register" name="submit" id="submit" onclick=" return valid()">
+        </form>
+    </div>
+
+    <script>
+        var x=document.getElementById("x");
+        var y=document.getElementById("y");
+        var z=document.getElementById("z");
+        var a=document.getElementById("a");
+        function valid() 
+    {
+        var u =document.getElementById("user").value;
+
+        var e = document.getElementById("email").value;
+
+        var p = document.getElementById("pwd").value;
+
+        var cp = document.getElementById("cpwd").value;
+
+
+        if (u.length<6 || u.length>15)
+            {
+                x.style.display="inline";
+                return false;
+            }
+        else if (e.length <8 || e.length>25)   
+            {
+                y.style.display="inline";
+                return false;
+            } 
+
+        else if (p.length <8 || p.length >15)
+        {
+                z.style.display="inline";
+                return false;
+        }
+
+        else if (p!=cp)
+        {
+                 a.style.display="inline";
+                 return false;
+        }
+
+    }
+
+    function myfun()
+    {
+        x.style.display="none";
+        y.style.display="none";
+        z.style.display="none";
+        a.style.display="none";
+    }
+
+
+    </script>
+</body>
+</html>
